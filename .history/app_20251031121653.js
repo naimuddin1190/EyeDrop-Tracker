@@ -1,4 +1,4 @@
-/* app.js — বাংলা UI + ৪টি ড্রপের প্রগ্রেস বার + সম্পন্ন তালিকা PDF + progress সম্পূর্ণ হলে বার্তা */
+/* app.js — বাংলা UI + ৪টি ড্রপের প্রগ্রেস বার + সম্পন্ন তালিকা PDF + warning & success alert */
 
 const scheduleData = [
   ["8:00 AM", "Atrogen 1%", "১ম", "১ ফোঁটা", "atrogen"],
@@ -37,7 +37,6 @@ const exportPdfManual = document.getElementById('exportPdfManual');
 const clearAll = document.getElementById('clearAll');
 const pdfContainer = document.getElementById('pdfContainer');
 
-// Individual progress bar references
 const progBars = {
   atrogen: document.getElementById('prog-atrogen'),
   vigalon: document.getElementById('prog-vigalon'),
@@ -47,13 +46,11 @@ const progBars = {
 
 const TOTAL = scheduleData.length;
 
-// আজকের তারিখ
 function isoToday(d = new Date()) {
   return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
 }
 viewDate.value = isoToday();
 
-// সময় আপডেট
 function updateClock() {
   const n = new Date();
   liveTime.textContent =
@@ -64,7 +61,6 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// Storage
 function keyFor(d) {
   return 'eyedrop_' + d;
 }
@@ -89,7 +85,6 @@ function saveDay(d, arr) {
   localStorage.setItem(keyFor(d), JSON.stringify(arr));
 }
 
-// Render Table + Completed List
 function render() {
   const dateStr = viewDate.value;
   const day = loadDay(dateStr);
@@ -125,7 +120,6 @@ function render() {
   updateProgressUI(day);
 }
 
-// Toggle Taken
 function toggleTaken(d, idx) {
   const day = loadDay(d);
   const item = day.find(i => i.idx === idx);
@@ -134,7 +128,6 @@ function toggleTaken(d, idx) {
   render();
 }
 
-// Update Progress UI + messages
 function updateProgressUI(day) {
   const done = day.filter(d => d.taken).length;
   const percent = Math.round((done / TOTAL) * 100);
@@ -149,9 +142,18 @@ function updateProgressUI(day) {
     const p = Math.round((done / total) * 100);
     progBars[tag].style.width = p + '%';
 
-    // যদি ড্রপ 100% হয়
     let msgId = 'msg_' + tag;
     let existing = document.getElementById(msgId);
+
+    // 🔔 যদি ড্রপ 100% হয় তাহলে alert দেখাও
+    if (p === 100 && !progBars[tag].dataset.completed) {
+      alert(`⚠️ ${tag.toUpperCase()} drops completed!`);
+      progBars[tag].dataset.completed = "true";
+    } else if (p < 100) {
+      progBars[tag].dataset.completed = "";
+    }
+
+    // Visual message below the bar
     if (p === 100) {
       if (!existing) {
         const msg = document.createElement('div');
@@ -164,25 +166,19 @@ function updateProgressUI(day) {
       existing.remove();
       allComplete = false;
     }
+
     if (p < 100) allComplete = false;
   });
 
-  // যদি সব ড্রপ সম্পন্ন হয়
-  let doneMsg = document.getElementById('allDoneMsg');
-  if (allComplete) {
-    if (!doneMsg) {
-      doneMsg = document.createElement('div');
-      doneMsg.id = 'allDoneMsg';
-      doneMsg.className = 'all-complete-banner';
-      doneMsg.textContent = '🎉 আজকের সব ড্রপের শিডিউল সফলভাবে সম্পন্ন হয়েছে!';
-      document.querySelector('.progress-wrap').appendChild(doneMsg);
-    }
-  } else if (doneMsg) {
-    doneMsg.remove();
+  // 🎉 সব ড্রপ সম্পূর্ণ হলে alert দেখাও
+  if (allComplete && !progressBar.dataset.allDone) {
+    alert("🎉 All eye drops for today are successfully completed!");
+    progressBar.dataset.allDone = "true";
+  } else if (!allComplete) {
+    progressBar.dataset.allDone = "";
   }
 }
 
-// Buttons
 todayBtn.onclick = () => {
   viewDate.value = isoToday();
   render();
@@ -193,11 +189,12 @@ clearAll.onclick = () => {
     Object.keys(localStorage).forEach(k => {
       if (k.startsWith('eyedrop_')) localStorage.removeItem(k);
     });
+    Object.values(progBars).forEach(pb => pb.dataset.completed = "");
+    progressBar.dataset.allDone = "";
     render();
   }
 };
 
-// PDF Export
 function generateTablePDF() {
   const dateStr = viewDate.value;
   const day = loadDay(dateStr);
@@ -242,9 +239,7 @@ function generateTablePDF() {
   html2pdf().set(opt).from(pdfContainer).save();
 }
 
-// Attach PDF buttons
 exportPdf.onclick = generateTablePDF;
 exportPdfManual.onclick = generateTablePDF;
 
-// Initial Render
 render();
