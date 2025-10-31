@@ -1,0 +1,100 @@
+/* styles.css — professional, eye-catching, mobile-first */
+:root{
+  --bg:#f6fbff;
+  --card:#ffffff;
+  --accent:#0b74d1;
+  --accent-2:#7c3aed;
+  --muted:#6b7280;
+  --green:#10b981;
+  --danger:#ef4444;
+  --glass: rgba(255,255,255,0.6);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Inter", "Noto Sans Bengali", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg, #f3f9ff 0%, #eef6ff 100%);
+  color: #071233;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* App container */
+.app{max-width:1100px;margin:14px auto;padding:12px;}
+
+/* Topbar */
+.topbar{
+  position:sticky; top:10px; z-index:30;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:12px 16px; border-radius:12px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
+  box-shadow: 0 6px 22px rgba(9,30,66,0.08);
+  backdrop-filter: blur(6px);
+}
+
+.brand{display:flex;gap:12px;align-items:center}
+.logo{font-size:30px}
+.title{font-weight:700;font-size:16px}
+.subtitle{font-size:13px;color:var(--muted)}
+
+.top-center{display:flex;flex-direction:column;align-items:center;gap:6px}
+.live-time{font-weight:700;font-size:16px;color:var(--accent)}
+.date-controls{display:flex;gap:8px;align-items:center}
+.date-controls input[type="date"]{padding:8px;border-radius:8px;border:1px solid #e6eef7}
+.btn{background:var(--accent);color:#fff;padding:8px 10px;border-radius:8px;border:0;cursor:pointer;font-weight:600}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(11,116,209,0.12)}
+.btn.danger{background:var(--danger)}
+.top-right{display:flex;gap:8px;align-items:center}
+
+/* Progress */
+.progress-wrap{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.progress-info{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.progress-info #progressText{font-weight:700}
+.small-note{color:var(--muted);font-size:13px}
+.progress-bar-bg{height:14px;background:#e6f0ff;border-radius:12px;overflow:hidden}
+.progress-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width 400ms cubic-bezier(.2,.9,.3,1)}
+
+/* Content layout */
+.content{display:grid;grid-template-columns:1fr 340px;gap:16px;margin-top:16px}
+.card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 8px 28px rgba(13,27,65,0.06)}
+.schedule-card h3{margin:0 0 8px 0}
+.side-card h4{margin:0 0 8px 0}
+
+/* Table styles */
+.table-wrap{overflow:auto}
+.schedule-table{width:100%;border-collapse:collapse;min-width:560px}
+.schedule-table thead th{
+  text-align:left;padding:10px;border-bottom:1px solid #eef4ff;color:var(--muted);font-weight:700;background:linear-gradient(90deg,#fbfdff,#f6fbff)
+}
+.schedule-table tbody td{padding:10px;border-bottom:1px solid #f1f7ff;vertical-align:middle}
+
+/* medicine color badges - left column style */
+.med-badge{
+  display:inline-flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;color:#fff;font-weight:700;
+}
+.med-atrogen{background: linear-gradient(180deg,#f97316,#f43f5e)} /* orange-red */
+.med-vigalon{background: linear-gradient(180deg,#06b6d4,#0ea5a9)} /* teal */
+.med-neopred{background: linear-gradient(180deg,#7c3aed,#6d28d9)} /* purple */
+.med-nevan{background: linear-gradient(180deg,#10b981,#059669)} /* green */
+
+/* mark button */
+.mark-btn{padding:8px 10px;border-radius:8px;border:0;cursor:pointer;font-weight:700;background:#f1f5f9}
+.mark-btn.done{background:linear-gradient(90deg,#10b981,#34d399);color:white}
+
+/* completed list */
+.completed-list{list-style:none;padding:0;margin:8px 0;max-height:300px;overflow:auto}
+.completed-list li{background:#f3f9ff;padding:8px;border-radius:8px;margin-bottom:8px;color:#073257;font-weight:600}
+
+/* side actions */
+.side-actions{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+
+/* footer */
+.footer{text-align:center;color:var(--muted);margin-top:14px;font-size:13px}
+
+/* responsive */
+@media (max-width:920px){
+  .content{grid-template-columns:1fr; }
+  .topbar{flex-direction:column;align-items:stretch;gap:10px}
+  .top-center{flex-direction:row;justify-content:space-between}
+}

@@ -1,0 +1,89 @@
+body {
+  font-family: "Noto Sans Bengali", sans-serif;
+  background: #f3faff;
+  margin: 0;
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #0b74d1;
+  color: white;
+  padding: 15px;
+  height: 100vh;
+  position: fixed;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  background: #ffffff33;
+  margin: 6px 0;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+/* Main Section */
+.main {
+  margin-left: 240px;
+  padding: 20px;
+  flex: 1;
+}
+
+header h1 {
+  text-align: center;
+  color: #0b74d1;
+}
+
+.progress-container {
+  width: 100%;
+  background: #ddd;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 20px;
+  background: #0b74d1;
+  width: 0%;
+  transition: width 0.4s;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+button {
+  background: #0b74d1;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.done {
+  background: #28a745;
+}

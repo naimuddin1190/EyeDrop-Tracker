@@ -1,0 +1,64 @@
+<!doctype html>
+<h1>চোখের ড্রপ ট্র্যাকার — মনোয়ারা বেগম</h1>
+<p class="meta">বয়স: <strong>75</strong> • চোখ: ডান (চানী অপারেশন) • অপারেশন তারিখ: <strong>29/10/2025</strong></p>
+</div>
+<div class="controls">
+<input id="viewDate" type="date">
+<button id="todayBtn" class="btn ghost">আজ</button>
+<button id="exportBtn" class="btn">CSV এক্সপোর্ট</button>
+<button id="clearBtn" class="btn danger">সব ডাটা মুছো</button>
+</div>
+</header>
+
+
+<main class="main-grid">
+<section class="card">
+<h2>আজকের শিডিউল</h2>
+<p class="small">প্রতিটি ডোজে ট্যাপ করে "নেওয়া হয়েছে" চিহ্নিত করো। ডাটা তোমার ফোনে স্থানীয়ভাবে সংরক্ষিত হবে।</p>
+<div id="scheduleList" class="list"></div>
+
+
+<div class="actions">
+<button id="notifyToggle" class="btn ghost">রিমাইন্ডার চালু করো</button>
+<button id="addManual" class="btn ghost">ম্যানুয়াল এন্ট্রি যোগ করো</button>
+</div>
+</section>
+
+
+<aside class="card small-card">
+<h3>ডেইলি লগ</h3>
+<div class="history">
+<table>
+<thead><tr><th>সময়</th><th>মেডিসিন</th><th>স্ট্যাটাস</th></tr></thead>
+<tbody id="logBody"><tr><td colspan="3" class="small">কোনো এন্ট্রি নেই</td></tr></tbody>
+</table>
+</div>
+<div class="summary" id="summary">--</div>
+</aside>
+
+
+<section class="card wide">
+<h3>ইতিহাস ও স্ট্যাটস</h3>
+<p class="small">পাস্ট ডেটা দেখো, স্ট্যাটস চেক করো বা আনুমানিক কভারেজ দেখো।</p>
+<div class="row">
+<select id="viewRange">
+<option value="7">শেষ 7 দিন</option>
+<option value="30">শেষ 30 দিন</option>
+<option value="365">শেষ 1 বছর</option>
+</select>
+<button id="showStats" class="btn ghost">স্ট্যাটস দেখাও</button>
+</div>
+<div id="stats"></div>
+</section>
+
+
+</main>
+
+
+<footer class="foot">ডাটা লোকালি (browser localStorage) সেভ হয় • পেজ বন্ধ করলে রিমাইন্ডার কাজ করবে না</footer>
+</div>
+
+
+<script src="app.js"></script>
+</body>
+</html>

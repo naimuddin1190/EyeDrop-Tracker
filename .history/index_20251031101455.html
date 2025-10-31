@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>চোখের ড্রপ ট্র্যাকার - Monowara Begum</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>💧 চোখের ড্রপ ট্র্যাকার</h1>
+    <p>রোগী: <strong>Monowara Begum</strong> | বয়স: ৭৫ | চোখের ছানি অপারেশন: ২৯/১০/২৫</p>
+    <div class="datetime">
+      <span id="current-date"></span> |
+      <span id="current-time"></span>
+    </div>
+  </header>
+
+  <section class="progress-section">
+    <h2>আজকের মোট প্রগ্রেস</h2>
+    <div class="progress-container">
+      <div class="progress-bar" id="totalProgress"><span>0%</span></div>
+    </div>
+
+    <div class="drop-progress">
+      <p>Atrogen 1%</p>
+      <div class="progress-bar atrogen" id="atrogenProgress"><span>০ ফোঁটা</span></div>
+
+      <p>Vigalon</p>
+      <div class="progress-bar vigalon" id="vigalonProgress"><span>০ ফোঁটা</span></div>
+
+      <p>Neopred</p>
+      <div class="progress-bar neopred" id="neopredProgress"><span>০ ফোঁটা</span></div>
+
+      <p>Nevan Ts</p>
+      <div class="progress-bar nevan" id="nevanProgress"><span>০ ফোঁটা</span></div>
+    </div>
+  </section>
+
+  <section class="table-section">
+    <h2>🕐 চোখের ড্রপ ব্যবহারের রুটিন</h2>
+    <table id="dropTable">
+      <thead>
+        <tr>
+          <th>সময়</th>
+          <th>ড্রপের নাম</th>
+          <th>ব্যবহার সংখ্যা</th>
+          <th>মন্তব্য</th>
+          <th>অবস্থা</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <aside id="sidebar">
+    <h3>✅ সম্পন্ন ড্রপসমূহ</h3>
+    <ul id="completedList"></ul>
+  </aside>
+
+  <button id="downloadPDF">📄 PDF সংরক্ষণ করো</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

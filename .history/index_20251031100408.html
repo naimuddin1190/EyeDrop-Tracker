@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>চোখের ড্রপ ট্র্যাকার - Monowara Begum</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <h2>✅ সম্পন্ন তালিকা</h2>
+    <ul id="completedList"></ul>
+    <button id="downloadPdf">📄 আজকের রিপোর্ট ডাউনলোড</button>
+  </div>
+
+  <div class="main">
+    <header>
+      <h1>💧 চোখের ড্রপ ট্র্যাকার</h1>
+      <p>রোগীর নাম: <strong>Monowara Begum</strong> | বয়স: ৭৫ | অপারেশনের তারিখ: ২৯/১০/২০২৫</p>
+      <p>📍 শুধু ডান চোখে | ⏱️ প্রতিটি ড্রপের মাঝে ৫ মিনিট বিরতি দিতে হবে</p>
+      <div id="datetime"></div>
+
+      <div class="overall-progress">
+        <div class="progress-container">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <p id="progressText">আজকের মোট অগ্রগতি: ০%</p>
+      </div>
+
+      <div id="individualProgress"></div>
+    </header>
+
+    <table id="schedule">
+      <tr>
+        <th>সময়</th>
+        <th>ড্রপের নাম</th>
+        <th>ব্যবহার সংখ্যা</th>
+        <th>মন্তব্য</th>
+        <th>অবস্থা</th>
+      </tr>
+    </table>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

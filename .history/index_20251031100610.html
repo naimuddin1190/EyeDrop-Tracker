@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>চোখের ড্রপ ট্র্যাকার</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="header">
+    <h1>💧 চোখের ড্রপ ট্র্যাকার</h1>
+    <p id="datetime"></p>
+  </div>
+
+  <div class="container">
+    <p><strong>রোগীর নাম:</strong> Monowara Begum</p>
+    <p><strong>বয়স:</strong> ৭৫ বছর</p>
+    <p><strong>অপারেশনের তারিখ:</strong> ২৯/১০/২০২৫</p>
+    <p><strong>📍 শুধুমাত্র ডান চোখে</strong></p>
+    <p><strong>⏱️ প্রতিটি ড্রপের মাঝে ৫ মিনিট বিরতি দিতে হবে</strong></p>
+
+    <h2>আজকের ড্রপের সময়সূচি</h2>
+
+    <div class="progress-section">
+      <div class="drop-progress">
+        <label>Atrogen 1%</label>
+        <progress id="atrogenProgress" value="0" max="3"></progress>
+      </div>
+      <div class="drop-progress">
+        <label>Vigalon</label>
+        <progress id="vigalonProgress" value="0" max="6"></progress>
+      </div>
+      <div class="drop-progress">
+        <label>Neopred</label>
+        <progress id="neopredProgress" value="0" max="10"></progress>
+      </div>
+      <div class="drop-progress">
+        <label>Nevan Ts</label>
+        <progress id="nevanProgress" value="0" max="3"></progress>
+      </div>
+    </div>
+
+    <table id="schedule">
+      <tr><th>সময়</th><th>ড্রপের নাম</th><th>ব্যবহার</th><th>অবস্থা</th></tr>
+    </table>
+
+    <button id="downloadPdf">📄 পিডিএফ ডাউনলোড করো</button>
+    <button id="reset">🔄 সব রিসেট করো</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+body {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  background: #f0f7ff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #0078d7;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  border-bottom: 4px solid #005fa3;
+}
+
+.datetime {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+h2 {
+  color: #004a7c;
+}
+
+.progress-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.progress-container, .drop-progress {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.progress-bar {
+  position: relative;
+  background: #e0e0e0;
+  border-radius: 20px;
+  height: 25px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.progress-bar span {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  line-height: 25px;
+  color: white;
+  font-weight: bold;
+}
+
+#totalProgress { background: linear-gradient(90deg, #ff7e5f, #feb47b); width: 0%; }
+
+.atrogen { background: linear-gradient(90deg, #009688, #4db6ac); width: 0%; }
+.vigalon { background: linear-gradient(90deg, #f57c00, #ffb74d); width: 0%; }
+.neopred { background: linear-gradient(90deg, #6a1b9a, #ba68c8); width: 0%; }
+.nevan { background: linear-gradient(90deg, #1976d2, #64b5f6); width: 0%; }
+
+.table-section {
+  padding: 20px;
+}
+
+table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+tr:nth-child(even) { background-color: #f9f9f9; }
+
+#sidebar {
+  position: fixed;
+  right: 0;
+  top: 80px;
+  background: #ffffff;
+  width: 220px;
+  height: 80%;
+  border-left: 3px solid #0078d7;
+  padding: 10px;
+  overflow-y: auto;
+  box-shadow: -3px 0px 8px rgba(0,0,0,0.1);
+}
+
+#downloadPDF {
+  display: block;
+  margin: 30px auto;
+  background: #0078d7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#downloadPDF:hover {
+  background: #005fa3;
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>চোখের ড্রপ ট্র্যাকার — Monowara Begum</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- html2pdf -->
+  <script src="https://unpkg.com/html2pdf.js@0.9.3/dist/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">💧</div>
+        <div>
+          <div class="title">চোখের ড্রপ ট্র্যাকার</div>
+          <div class="subtitle">Monowara Begum • বয়স: ৭৫ • ডান চোখ (চানী অপারেশন: 29/10/2025)</div>
+        </div>
+      </div>
+
+      <div class="top-center">
+        <div class="live-time" id="liveTime">—:—</div>
+        <div class="date-controls">
+          <input type="date" id="viewDate">
+          <button id="todayBtn" class="btn ghost">আজ</button>
+        </div>
+      </div>
+
+      <div class="top-right">
+        <button id="exportPdf" class="btn">PDF এক্সপোর্ট</button>
+        <button id="clearAll" class="btn danger">সব ডাটা মুছো</button>
+      </div>
+    </header>
+
+    <!-- Overall progress -->
+    <section class="progress-wrap">
+      <div class="progress-info">
+        <div id="progressText">আজকের অগ্রগতি: 0%</div>
+        <div class="small-note">প্রতিটি ড্রপের মাঝে কমপক্ষে ৫ মিনিট বিরতি রাখবেন</div>
+      </div>
+      <div class="progress-bar-bg">
+        <div id="progressBar" class="progress-bar-fill"></div>
+      </div>
+    </section>
+
+    <!-- 4 individual medicine progress -->
+    <section class="progress-multi">
+      <div class="med-progress">
+        <span class="med-badge med-atrogen">Atrogen</span>
+        <div class="progress-bar-bg small"><div id="prog-atrogen" class="progress-bar-fill"></div></div>
+      </div>
+      <div class="med-progress">
+        <span class="med-badge med-vigalon">Vigalon</span>
+        <div class="progress-bar-bg small"><div id="prog-vigalon" class="progress-bar-fill"></div></div>
+      </div>
+      <div class="med-progress">
+        <span class="med-badge med-neopred">Neopred</span>
+        <div class="progress-bar-bg small"><div id="prog-neopred" class="progress-bar-fill"></div></div>
+      </div>
+      <div class="med-progress">
+        <span class="med-badge med-nevan">Nevan Ts</span>
+        <div class="progress-bar-bg small"><div id="prog-nevan" class="progress-bar-fill"></div></div>
+      </div>
+    </section>
+
+    <!-- Main area -->
+    <main class="content">
+      <section class="card schedule-card">
+        <h3>আজকের শিডিউল</h3>
+        <div class="table-wrap">
+          <table id="scheduleTable" class="schedule-table">
+            <thead>
+              <tr>
+                <th>সময়</th>
+                <th>ড্রপের নাম</th>
+                <th>ব্যবহার সংখ্যা</th>
+                <th>মন্তব্য</th>
+                <th>অবস্থা</th>
+              </tr>
+            </thead>
+            <tbody id="scheduleBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside class="card side-card">
+        <h4>সম্পন্ন তালিকা</h4>
+        <ul id="completedList" class="completed-list"></ul>
+        <div class="side-actions">
+          <button id="exportPdfManual" class="btn ghost">PDF ডাউনলোড করো</button>
+          <div class="small-note">PDF একটি প্রিন্ট-ফ্রেন্ডলি রিপোর্ট হিসেবে ডাউনলোড হবে।</div>
+        </div>
+      </aside>
+    </main>
+
+    <div id="pdfContainer" style="display:none;"></div>
+    <footer class="footer">ডেটা লোকালি সংরক্ষিত হবে (এই ব্রাউজারে)।</footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <script src="app.js"></script>
+</body>
+</html>
