@@ -99,20 +99,13 @@ function render() {
   day.forEach(it => {
     const tr = document.createElement('tr');
     const medBadge = `<span class="med-badge med-${it.tag}">${it.med.split(' ')[0]}</span>`;
-    const btnText = it.taken ? '✅ সম্পন্ন' : '⬜ অপেক্ষমাণ';
-    const btnClass = it.taken ? 'done' : 'pending';
-
     tr.innerHTML = `
       <td>${it.time}</td>
       <td>${medBadge}</td>
       <td>${it.count}</td>
       <td>${it.note}</td>
-      <td>
-        <button class="mark-btn ${btnClass}" data-idx="${it.idx}" data-drop="${it.tag}">
-          ${btnText}
-        </button>
-      </td>
-    `;
+      <td><button class="mark-btn ${it.taken ? 'done' : 'pending'}" data-idx="${it.idx}" data-drop="${it.tag}">
+`;
     scheduleBody.appendChild(tr);
 
     if (it.taken) {
@@ -178,6 +171,7 @@ function updateProgressUI(day) {
     if (p < 100) allComplete = false;
   });
 
+  // যদি সব ড্রপ সম্পন্ন হয়
   let doneMsg = document.getElementById('allDoneMsg');
   if (allComplete) {
     if (!doneMsg) {

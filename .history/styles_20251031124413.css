@@ -150,19 +150,11 @@ body {
 }
 
 /* ✅ Completed Button */
-/* সম্পন্ন বাটন এর জন্য yellow gradient */
 .mark-btn.done {
-  background: linear-gradient(90deg, #FFD700, #FFC107); /* gold → amber */
+  background: linear-gradient(90deg,#FF5722,#FF7043); /* deep orange for completed */
   color: #fff;
-  box-shadow: 0 4px 12px rgba(255,193,7,0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255,87,34,0.35);
 }
-
-.mark-btn.done:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(255,193,7,0.45);
-}
-
 
 
 /* 🟠 Drop-specific pending buttons */
